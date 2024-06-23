@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="http://127.0.0.1:5000/static/style.css">
+
+    <title>Course Recommendation | Home</title>
+</head>
+
+<body>
+    <main role="main">
+
+
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h4 class="jumbotron-heading">Enter The Name of the Course for Recommendations</h4>
+                <div class="form-floating my-4">
+                    <form action="#" method="POST">
+                        <div class="input-group mb-3">
+                            <input name="course" type="text" class="form-control" id="course" placeholder="Search...">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-primary" id="voiceBtn">
+                                    <span class="microphone-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Recommend</button>
+                    </form>
+                </div>
+                {% if showtitle%}
+                <h4 class="jumbotron-heading">
+                    Recommendations for Course <span style="color: red; font-size:1.5rem;">"{{coursename}}"</span> are shown below
+                </h4>
+                {%endif%}
+            </div>
+        </section>
+
+        <div class="album">
+            <div class="container">
+
+                {%if showerror%}
+                <div class="card text-center">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">
+                            Seems Like the Course for {{coursename}} is not available currently,we'll
+                            report it to the Course Administrator for uploading the course :)
+                        </p>
+                        <a href="/" class="btn btn-primary">Home Page</a>
+                    </div>
+
+                </div>
+
+
+                {%endif%}
+
+                <div class="row">
+
+                    {%for course in coursemap%}
+
+                    <div class="col-md-4">
+                        <div class="card" style="background: transparent;">
+                            <div class="card-body" style="background: transparent;">
+                                <p class="card-text" style="color: white;">{{course}}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{{coursemap[course]}}" target="_blank" class="btn btn-outline-danger"
+                                           style="color: white;">View Course</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {%endfor%}
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <!-- Include this script in your HTML -->
+    <script>
+        // Select the voice recognition button
+        const voiceBtn = document.getElementById('voiceBtn');
+
+        // Event listener for the voice recognition button
+        voiceBtn.addEventListener('click', () => {
+            // Request permission to use the microphone
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    const mediaRecorder = new MediaRecorder(stream);
+                    const audioChunks = [];
+
+                    mediaRecorder.start();
+
+                    mediaRecorder.ondataavailable = event => {
+                        audioChunks.push(event.data);
+                    };
+
+                    mediaRecorder.onstop = () => {
+                        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                        const audioFile = new File([audioBlob], 'temp_audio.wav', { type: 'audio/wav' });
+
+                        const formData = new FormData();
+                        formData.append('file', audioFile);
+
+                        const url = "http://127.0.0.1:5055/process";
+
+                        fetch(url, {
+                            method: 'POST',
+                            body: formData
+                        })
+                            .then(response => response.text()) // Assuming the API returns plain text
+                            .then(data => {
+                                console.log('Success:', data);
+                                document.getElementById('course').value = data; // Set the returned text to the input field
+                            })
+                            .catch(error => {
+                                console.error('Error accessing API:', error);
+                            });
+
+                        stream.getTracks().forEach(track => track.stop());
+                    };
+
+                    setTimeout(() => {
+                        mediaRecorder.stop();
+                    }, 5000); // Record for 5 seconds
+                })
+                .catch(error => {
+                    console.error('Error accessing microphone:', error);
+                });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

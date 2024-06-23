@@ -1,0 +1,35 @@
+.boxindex {
+	position: absolute;
+	z-index: 1;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.Admin:hover {
+	background-color: #4800ff;
+	border-radius: 10px; /* Adjust the radius to control the roundness of the corners */
+	transition: background-color 1.5s ease, border-radius 0.5s ease; /* Add transition for smooth effect */
+}
+
+@keyframes slideDown {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+h2.mb-4 {
+	font-size: 5em; /* You can adjust the size as needed */
+	font-weight: bold;
+	transition: color 2s ease-in-out; /* Adding a smooth color transition */
+	animation: slideDown 2s ease-in-out; /* Adding a slide-down animation */
+}
+

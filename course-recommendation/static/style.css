@@ -1,0 +1,86 @@
+body {
+    font-size: 15px;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    background-image: url("img/bg1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.jumbotron {
+    background: transparent;
+}
+.navbar {
+    background-image: url("img/bg1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px 16px;
+}
+
+.nav-link,
+.bordernav {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: #052a5c !important;
+}
+
+.exclusive {
+    width: 170px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+
+.table{
+    box-shadow: 0 20px 50px rgb(23, 32, 90);
+    border: 2px solid #2a3cad;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.btn{
+    border-radius: 5px;
+    padding: 10px;
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #052a5c;
+}
+
+.btn:hover {
+    background-color: #124168;
+}
+
+.fw:not(.collapsed) {  
+    background-color: transparent;
+}
+.microphone-icon {
+    display: inline-block;
+    width: 40px;
+    height: 39px;
+    background-image: url('img/voice.jpeg');
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+}
+
+.btn-primary {
+    /* Adjust button style to fit inside input */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1px transparent; /* Add border for clear separation */
+    padding: 0; /* Remove padding to make it fit better */
+}
+

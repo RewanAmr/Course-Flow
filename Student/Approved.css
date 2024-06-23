@@ -1,0 +1,38 @@
+body {
+    font-size: 15px;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    background-image: url("../img/bg1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.navbar {
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px 16px;
+}
+
+.nav-link,
+.bordernav {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: #052a5c !important;
+}
+.container {
+    margin-top: 20px;
+}
+
+
+.table{
+    box-shadow: 0 20px 50px rgb(23, 32, 90);
+    border: 2px solid #2a3cad;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}

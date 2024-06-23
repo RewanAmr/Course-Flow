@@ -1,0 +1,94 @@
+
+
+body {
+    font-size: 15px;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    background-image: url("../img/bg1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.navbar {
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-link, .bordernav {
+    color: #ffffff !important;
+}
+
+    .nav-link:hover {
+        color: #052a5c !important;
+    }
+.exclusive{
+  width: 170px;
+}
+
+footer {
+    background-color: transparent;
+    color: #052a5c;
+    padding: 20px;
+    font-size: 15px;
+}
+
+    footer div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer p {
+        margin: 8px 0;
+    }
+
+    footer a {
+        color: #052a5c;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+        footer a:hover {
+            color: #e74c3c;
+        }
+
+/* Add animations and transitions */
+.card {
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon {
+    background-color: #052a5c;
+}
+
+.navhover a:hover {
+    color: #052a5c !important;
+}
+
+/* Additional styles for the form */
+.form-group label {
+    color: #052a5c;
+}
+
+.form-control {
+    border-color: #052a5c;
+    background-color: #ffffff;
+}
+
+/* Add animation to the button */
+.btn-warning:hover {
+    background-color: #124168;
+    border-color: #ffba08;
+}
+
+.btn-success:hover {
+    background-color: #124168;
+    border-color: #ffba08;
+}
+
+.btn-danger:hover {
+    background-color: #124168;
+    border-color: #ffba08;
+}

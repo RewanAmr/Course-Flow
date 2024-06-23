@@ -1,0 +1,164 @@
+/* session.css */
+body {
+    font-size: 15px;
+    margin: 0;
+    font-family: 'Exo', sans-serif;
+    background-image: url("../img/bg1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+     
+.container {
+    margin-top: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    border-color: #052a5c;
+    color: #ffffff;
+    background-color: transparent;
+    box-shadow: 0 20px 50px rgb(23, 32, 90);
+    border: 2px solid #2a3cad;
+    color: white;
+}
+
+.card-header {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #052a5c;
+}
+
+.btn-warning {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #052a5c;
+}
+
+.btn-success {
+    background-color: #052a5c;
+    color: #ffffff;
+    border-color: #052a5c;
+}
+
+.btn-danger {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #052a5c;
+}
+
+.listhover a {
+       margin-bottom: 2px;
+    font-size: 10pt;
+    height: 28px;
+    font-weight: bold;
+    padding-top: 6px;
+}
+
+    .listhover a:hover {
+        background-color: #45385;
+    }
+
+.exclusive {
+    width: 170px;
+}
+
+.navbar {
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-link, .bordernav {
+    color: #ffffff !important;
+}
+
+    .nav-link:hover {
+        color: #052a5c !important;
+    }
+
+.table {
+    border-color: #052a5c;
+    color: #ffffff;
+}
+
+.session-table {
+    background-color: transparent;
+}
+
+.modal-content {
+    background-color: #052a5c;
+    color: #ffffff;
+    border-color: #052a5c;
+}
+.thead {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+footer {
+    background-color: transparent;
+    color: #052a5c;
+    padding: 20px;
+    font-size: 15px;
+}
+    footer div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer p {
+        margin: 8px 0;
+    }
+
+    footer a {
+        color: #052a5c;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+        footer a:hover {
+            color: #e74c3c;
+        }
+
+/* Add animations and transitions */
+.card {
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon {
+    background-color: #052a5c;
+}
+
+.navhover a:hover {
+    color: #052a5c !important;
+}
+
+/* Additional styles for the form */
+.form-group label {
+    color: #052a5c;
+}
+
+.form-control {
+    border-color: #052a5c;
+    background-color: #ffffff;
+}
+
+/* Add animation to the button */
+.btn-warning:hover {
+    background-color: #124168;
+    border-color: #ffba08;
+}
+
+.btn-success:hover {
+    background-color: #124168;
+    border-color: #ffba08;
+}
+
+.btn-danger:hover {
+    background-color: #124168;
+    border-color: #ffba08;
+}
+
